@@ -1,0 +1,46 @@
+<ng-container
+  *ngIf="position === 'aside'"
+  [ngTemplateOutlet]="leftBtn"
+></ng-container>
+<div
+  class="content"
+  #content
+>
+  <ng-content></ng-content>
+</div>
+<ng-container
+  *ngIf="position === 'aside'"
+  [ngTemplateOutlet]="rightBtn"
+></ng-container>
+
+<div
+  class="bellow-btns"
+  *ngIf="position === 'bellow'"
+>
+  <ng-container
+    [ngTemplateOutlet]="leftBtn"
+  ></ng-container>
+  <ng-container
+    [ngTemplateOutlet]="rightBtn"
+  ></ng-container>
+</div>
+
+<ng-template #leftBtn>
+  <div
+    matRipple
+    class="nav-btn left"
+    (click)="previous()"
+  >
+    <fa-icon [icon]="['fal', 'chevron-left']"></fa-icon>
+  </div>
+</ng-template>
+
+<ng-template #rightBtn>
+  <div
+    matRipple
+    class="nav-btn right"
+    (click)="next()"
+  >
+    <fa-icon [icon]="['fal', 'chevron-right']"></fa-icon>
+  </div>
+</ng-template>
